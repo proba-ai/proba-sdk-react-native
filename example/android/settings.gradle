@@ -1,0 +1,6 @@
+rootProject.name = 'AppboosterSdkReactNativeExample'
+apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
+include ':app'
+
+include ':appboostersdkreactnative'
+project(':appboostersdkreactnative').projectDir = new File(rootProject.projectDir, '../../android')
