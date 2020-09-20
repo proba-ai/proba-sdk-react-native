@@ -4,14 +4,22 @@ Mobile framework for Appbooster platform.
 
 ## Installation
 
+using either Yarn:
+
 ```sh
-npm install appbooster-sdk-react-native
+yarn add appbooster-sdk-react-native
+```
+
+or npm:
+
+```sh
+npm install --save appbooster-sdk-react-native
 ```
 
 ## Usage
 
 ```js
-import AppboosterSdkReactNative from "appbooster-sdk-react-native";
+import AppboosterSdkReactNative from 'appbooster-sdk-react-native';
 
 // ...
 
