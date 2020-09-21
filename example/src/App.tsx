@@ -1,17 +1,45 @@
 import * as React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import AppboosterSdkReactNative from 'appbooster-sdk-react-native';
+import AppboosterSdk from 'appbooster-sdk-react-native';
+
+const connectToAppboosterSDK = async () => {
+  const connected = await AppboosterSdk.connect({
+    appId: '15330',
+    sdkToken: 'BD031163FD944BBF83CDEE09C27D7B79',
+    deviceId: '',
+    defaults: {
+      removeTutorial: 'No',
+    },
+    // appId: 'YOUR_APP_ID',
+    // sdkToken: 'YOUR_SDK_TOKEN',
+    // deviceId: 'YOUR_DEVICE_ID',
+    usingShake: false,
+    // defaults: {
+    //   ['TEST_1_KEY']: 'TEST_1_DEFAULT_VALUE',
+    //   ['TEST_2_KEY']: 'TEST_2_DEFAULT_VALUE',
+    // },
+    isInDevMode: false,
+  });
+  console.log('connected to AppboosterSdk: ', connected);
+
+  const experiments = await AppboosterSdk.fetch();
+  console.log('experiments: ', experiments);
+
+  const duration = await AppboosterSdk.getLastOperationDurationMillis();
+  console.log('duration: ', duration);
+
+  const isDebugModeLaunched = await AppboosterSdk.launchDebugMode();
+  console.log('isDebugModeLaunched: ', isDebugModeLaunched);
+};
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
   React.useEffect(() => {
-    AppboosterSdkReactNative.multiply(3, 7).then(setResult);
+    connectToAppboosterSDK();
   }, []);
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text>AppboosterSdk test</Text>
     </View>
   );
 }
