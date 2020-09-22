@@ -4,20 +4,14 @@ import AppboosterSdk from 'appbooster-sdk-react-native';
 
 const connectToAppboosterSDK = async () => {
   const connected = await AppboosterSdk.connect({
-    appId: '15330',
-    sdkToken: 'BD031163FD944BBF83CDEE09C27D7B79',
-    deviceId: '',
-    defaults: {
-      removeTutorial: 'No',
-    },
-    // appId: 'YOUR_APP_ID',
-    // sdkToken: 'YOUR_SDK_TOKEN',
-    // deviceId: 'YOUR_DEVICE_ID',
+    appId: 'YOUR_APP_ID',
+    sdkToken: 'YOUR_SDK_TOKEN',
+    deviceId: 'YOUR_DEVICE_ID',
     usingShake: false,
-    // defaults: {
-    //   ['TEST_1_KEY']: 'TEST_1_DEFAULT_VALUE',
-    //   ['TEST_2_KEY']: 'TEST_2_DEFAULT_VALUE',
-    // },
+    defaults: {
+      ['TEST_1_KEY']: 'TEST_1_DEFAULT_VALUE',
+      ['TEST_2_KEY']: 'TEST_2_DEFAULT_VALUE',
+    },
     isInDevMode: false,
   });
   console.log('connected to AppboosterSdk: ', connected);

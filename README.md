@@ -23,7 +23,7 @@ import AppboosterSdkReactNative from 'appbooster-sdk-react-native';
 
 // ...
 
-const result = await AppboosterSdkReactNative.multiply(3, 7);
+!!!!!!!!!!!!!! UPDATE README !!!!!!!!!!!!!!!!!!!
 ```
 
 ## Contributing

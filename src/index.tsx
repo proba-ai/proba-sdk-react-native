@@ -16,7 +16,6 @@ type SDKSettings = {
 };
 
 type AppboosterSdkReactNativeType = {
-  multiply(a: number, b: number): Promise<number>;
   connect(sdkSettings: SDKSettings): Promise<boolean>;
   fetch(): Promise<Experiments>;
   getLastOperationDurationMillis(): Promise<number>;

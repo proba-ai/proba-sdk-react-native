@@ -5,11 +5,6 @@ class AppboosterSdkReactNative: NSObject {
     
     private var sdk: AppboosterSDK!
 
-    @objc(multiply:withB:withResolver:withRejecter:)
-    func multiply(a: Float, b: Float, resolve:RCTPromiseResolveBlock,reject:RCTPromiseRejectBlock) -> Void {
-        resolve(a*b)
-    }
-    
     @objc(connect:withResolver:withRejecter:)
     func connect(sdkSettings:[String: Any],
                  resolve: @escaping RCTPromiseResolveBlock,

@@ -12,13 +12,6 @@ class AppboosterSdkReactNativeModule(reactContext: ReactApplicationContext) : Re
     }
 
     @ReactMethod
-    fun multiply(a: Int, b: Int, promise: Promise) {
-    
-      promise.resolve(a * b)
-    
-    }
-
-    @ReactMethod
     fun connect(settings: ReadableMap, promise: Promise) {
         val preparedSettings = Utils.prepareSetting(settings)
 
