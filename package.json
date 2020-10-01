@@ -1,6 +1,6 @@
 {
   "name": "appbooster-sdk-react-native",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Mobile framework for Appbooster platform.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -32,7 +32,8 @@
     "clear-example": "cd example && rm -rf $TMPDIR/react-* && rm -rf $TMPDIR/metro-* && rm -rf $TMPDIR/haste-* && rm -rf node_modules/ && yarn cache clean && cd ios && rm -rf Pods && rm -rf build && cd .. && cd android && rm -rf build && cd .. && cd ..",
     "clear-android-cache": "cd example/android && bash gradlew clean && bash gradlew cleanBuildCache && cd ..",
     "clear": "yarn clear-root && yarn clear-example",
-    "reset": "yarn clear-root && yarn clear-example && yarn bootstrap && yarn clear-android-cache"
+    "reset": "yarn clear-root && yarn clear-example && yarn bootstrap && yarn clear-android-cache",
+    "clear-pods": "cd example && cd ios && pod cache clean --all && cd .. && cd .."
   },
   "keywords": [
     "react-native",

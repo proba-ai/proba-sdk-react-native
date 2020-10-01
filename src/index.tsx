@@ -12,13 +12,13 @@ type SDKSettings = {
   deviceId: string;
   usingShake: boolean;
   defaults: Experiments;
-  isInDevMode: boolean;
+  showLogs: boolean;
 };
 
 type AppboosterSdkReactNativeType = {
   connect(sdkSettings: SDKSettings): Promise<boolean>;
-  fetch(): Promise<Experiments>;
-  getExperiments(): Promise<Experiments>;
+  fetch(): Promise<boolean>;
+  getExperiments(addAppboosterPrefix?: boolean): Promise<Experiments>;
   getLastOperationDurationMillis(): Promise<number>;
   launchDebugMode(): Promise<boolean>;
 };
@@ -30,7 +30,7 @@ class AppboosterSdk {
     deviceId = '',
     usingShake = false,
     defaults = {},
-    isInDevMode = false,
+    showLogs = false,
   }: SDKSettings): Promise<boolean> => {
     return await AppboosterSdkReactNative.connect({
       appId,
@@ -38,16 +38,18 @@ class AppboosterSdk {
       deviceId,
       usingShake,
       defaults,
-      isInDevMode,
+      showLogs,
     });
   };
 
-  fetch = async (): Promise<Experiments> => {
+  fetch = async (): Promise<boolean> => {
     return await AppboosterSdkReactNative.fetch();
   };
 
-  getExperiments = async (): Promise<Experiments> => {
-    return await AppboosterSdkReactNative.getExperiments();
+  getExperiments = async (
+    addAppboosterPrefix: boolean = true
+  ): Promise<Experiments> => {
+    return await AppboosterSdkReactNative.getExperiments(addAppboosterPrefix);
   };
 
   getLastOperationDurationMillis = async (): Promise<number> => {

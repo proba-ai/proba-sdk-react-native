@@ -4,7 +4,7 @@ React Native wrapper for Appbooster SDK ([ios](https://github.com/appbooster/app
 
 ## Installation
 
-Note that RN SDK doesn't support **RN < 0.62**.  
+Note that RN SDK currently doesn't support projects with **RN < 0.62**.  
 If you want to use RN SDK in your project, please, update your project to **RN >= 0.62**
 
 ### Common steps
@@ -81,25 +81,38 @@ const connected = await AppboosterSdk.connect({
 ### How to fetch known test values that associated with your device?
 
 ```js
-const experiments = await AppboosterSdk.fetch(); // object with experiments (initial fetch to server)
+const fetched = await AppboosterSdk.fetch(); // boolean
 ```
 
 ### How to get the value for a specific test?
 
 ```js
+const experiments = await AppboosterSdk.getExperiments(/*optional boolean parameter, true by default*/); // object with experiments
 const value = experiments['TEST_1_KEY']; // string
 ```
+
+**NOTE:** You can find info about `getExperiments`-method's optional boolean parameter in [analytics usage section](#how-to-get-user-tests-for-analytics)
 
 In case of problems with no internet connection or another, the values obtained in the previous session will be used, or if they are missing, the default values specified during initialization will be used.
 
 ### How to get user tests for analytics?
 
 ```js
-const experiments = await AppboosterSdk.getExperiments(); // object with experiments (cached values after initial fetch to server)
+// This method add prefix `[Appbooster] ` to all experiment names by default
+// It helps you group all user properties in analytics
+// If you need clear names without prefix use `await AppboosterSdk.getExperiments(false)` (i.e. for your logs)
+const experiments = await AppboosterSdk.getExperiments(/*optional boolean parameter, true by default*/); // object with experiments
 
-// i.e. set Amplitude user properties
+// example: send to amplitude and appsflyer
 const amplitude = new RNAmplitude('Your Amplitude key');
 amplitude.setUserProperties(experiments);
+
+try {
+  await appsFlyer.initSdk(options);
+  appsFlyer.setAdditionalData(experiments, (res) => {
+    /*...*/
+  });
+} catch (err) {}
 ```
 
 ### How to debug?
@@ -111,7 +124,7 @@ Before debug make sure that debug-mode for your App is turned-on on [settings pa
 ```js
 const connected = await AppboosterSdk.connect({
   //...
-  isInDevMode: true, // false by default, to print all debugging info in the console (you can see logs in XCode or Android Studio)
+  showLogs: true, // false by default, to print all debugging info in the console (you can see logs in XCode or Android Studio)
   //...
 });
 

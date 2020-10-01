@@ -14,7 +14,7 @@ class AppboosterSdkReactNative: NSObject {
         let deviceId = sdkSettings["deviceId"] as? String ?? ""
         let usingShake = sdkSettings["usingShake"] as? Bool ?? false
         let defaults = sdkSettings["defaults"] as? [String: String] ?? [:]
-        let isInDevMode = sdkSettings["isInDevMode"] as? Bool ?? false
+        let showLogs = sdkSettings["showLogs"] as? Bool ?? false
 
         sdk = AppboosterSDK(
             sdkToken: sdkToken,
@@ -28,7 +28,7 @@ class AppboosterSdkReactNative: NSObject {
                  and "ab.log = { text in }" in Android SDK
                  or it is not documented.
         */
-        sdk!.showDebug = isInDevMode
+        sdk!.showDebug = showLogs
         resolve(true)
     }
     
@@ -37,15 +37,16 @@ class AppboosterSdkReactNative: NSObject {
         resolve: @escaping RCTPromiseResolveBlock,
         reject: @escaping RCTPromiseRejectBlock) -> Void {
         sdk!.fetch(completion: { error in
-            resolve(self.sdk!.experiments)
+            resolve(error == nil)
         })
     }
 
-    @objc(getExperiments:withRejecter:)
+    @objc(getExperiments:withResolver:withRejecter:)
     func getExperiments(
+        addAppboosterPrefix: Bool,
         resolve: @escaping RCTPromiseResolveBlock,
         reject: @escaping RCTPromiseRejectBlock) -> Void {
-        resolve(sdk!.experiments)
+        resolve(sdk!.experiments(addAppboosterPrefix: addAppboosterPrefix))
     }
     
     @objc(getLastOperationDurationMillis:withRejecter:)
