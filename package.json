@@ -1,7 +1,7 @@
 {
   "name": "appbooster-sdk-react-native",
   "version": "0.2.1",
-  "description": "Mobile framework for Appbooster platform.",
+  "description": "Mobile AB-testing SDK",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/src/index.d.ts",
@@ -40,8 +40,8 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/appbooster/appbooster-sdk-react-native",
-  "author": "appbooster <bannikov@appbooster.ru> (https://github.com/appbooster)",
+  "repository": "git@github.com:appbooster/appbooster-sdk-react-native.git",
+  "author": "Appbooster <admin+developers@appbooster.ru>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/appbooster/appbooster-sdk-react-native/issues"
