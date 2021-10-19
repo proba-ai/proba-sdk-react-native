@@ -20,7 +20,7 @@ PODS:
     - glog
   - glog (0.3.5)
   - Proba (0.2.7)
-  - proba-sdk-react-native (0.2.8):
+  - proba-sdk-react-native (1.0.0):
     - Proba (= 0.2.7)
     - React
   - RCTRequired (0.62.2)
@@ -345,7 +345,7 @@ SPEC CHECKSUMS:
   Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
   glog: 1f3da668190260b06b429bb211bfbee5cd790c28
   Proba: 7a71a554d8506116ac63673a0a5f281a51efdd6b
-  proba-sdk-react-native: 2bc63a16d52e436236171126626ff17d289b1dab
+  proba-sdk-react-native: 80e3e42f1db6487efdfc8303df0b2b000c218e96
   RCTRequired: cec6a34b3ac8a9915c37e7e4ad3aa74726ce4035
   RCTTypeSafety: 93006131180074cffa227a1075802c89a49dd4ce
   React: 29a8b1a02bd764fb7644ef04019270849b9a7ac3
