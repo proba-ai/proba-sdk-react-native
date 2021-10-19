@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
-import AppboosterSdk from 'appbooster-sdk-react-native';
+import ProbaSdk from 'proba-sdk-react-native';
 
-const connectToAppboosterSDK = async () => {
+const connectToProbaSDK = async () => {
   try {
-    const connected = await AppboosterSdk.connect({
+    const connected = await ProbaSdk.connect({
       appId: 'YOUR_APP_ID',
       sdkToken: 'YOUR_SDK_TOKEN',
       deviceId: 'YOUR_DEVICE_ID',
@@ -20,40 +20,40 @@ const connectToAppboosterSDK = async () => {
       },
       showLogs: false,
     });
-    console.log('connected to AppboosterSdk: ', connected);
+    console.log('connected to ProbaSdk: ', connected);
 
-    const fetched = await AppboosterSdk.fetch();
+    const fetched = await ProbaSdk.fetch();
     console.log('fetch experiments: ', fetched);
 
-    const experiments = await AppboosterSdk.getExperiments();
+    const experiments = await ProbaSdk.getExperiments();
     console.log('experiments : ', experiments);
 
-    const experimentsWithDetails = await AppboosterSdk.getExperimentsWithDetails();
+    const experimentsWithDetails = await ProbaSdk.getExperimentsWithDetails();
     console.log('experimentsWithDetails : ', experimentsWithDetails);
 
     const experiment = experiments['TEST_1_KEY'];
     console.log('experiment: ', experiment);
 
-    const duration = await AppboosterSdk.getLastOperationDurationMillis();
+    const duration = await ProbaSdk.getLastOperationDurationMillis();
     console.log('duration: ', duration);
   } catch (error) {
-    console.log('AppboosterSdkReactNative error: ', error);
+    console.log('ProbaSdkReactNative error: ', error);
   }
 };
 
 const activateDebug = async () => {
-  const isDebugModeLaunched = await AppboosterSdk.launchDebugMode();
+  const isDebugModeLaunched = await ProbaSdk.launchDebugMode();
   console.log('isDebugModeLaunched: ', isDebugModeLaunched);
 };
 
 export default function App() {
   React.useEffect(() => {
-    connectToAppboosterSDK();
+    connectToProbaSDK();
   }, []);
 
   return (
     <View style={styles.container}>
-      <Text>AppboosterSdk test</Text>
+      <Text>ProbaSdk test</Text>
       <Button title="activate Debug Mode" onPress={activateDebug} />
     </View>
   );

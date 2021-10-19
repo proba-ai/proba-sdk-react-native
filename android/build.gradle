@@ -1,6 +1,6 @@
 buildscript {
   // Buildscript is evaluated before everything else so we can't use getExtOrDefault
-  def kotlin_version = rootProject.ext.has('kotlinVersion') ? rootProject.ext.get('kotlinVersion') : project.properties['AppboosterSdkReactNative_kotlinVersion']
+  def kotlin_version = rootProject.ext.has('kotlinVersion') ? rootProject.ext.get('kotlinVersion') : project.properties['ProbaSdkReactNative_kotlinVersion']
 
   repositories {
     google()
@@ -18,11 +18,11 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 def getExtOrDefault(name) {
-  return rootProject.ext.has(name) ? rootProject.ext.get(name) : project.properties['AppboosterSdkReactNative_' + name]
+  return rootProject.ext.has(name) ? rootProject.ext.get(name) : project.properties['ProbaSdkReactNative_' + name]
 }
 
 def getExtOrIntegerDefault(name) {
-  return rootProject.ext.has(name) ? rootProject.ext.get(name) : (project.properties['AppboosterSdkReactNative_' + name]).toInteger()
+  return rootProject.ext.has(name) ? rootProject.ext.get(name) : (project.properties['ProbaSdkReactNative_' + name]).toInteger()
 }
 
 android {
@@ -127,5 +127,5 @@ dependencies {
   // noinspection GradleDynamicVersion
   api 'com.facebook.react:react-native:+'
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-  implementation "com.appbooster.appboostersdk:appboostersdk:0.5.1"
+  implementation "ai.proba.probasdk:probasdk:0.1.1"
 }

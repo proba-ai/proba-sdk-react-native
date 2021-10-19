@@ -1,6 +1,6 @@
 {
-  "name": "appbooster-sdk-react-native-example",
-  "description": "Example app for appbooster-sdk-react-native",
+  "name": "proba-sdk-react-native-example",
+  "description": "Example app for proba-sdk-react-native",
   "version": "0.0.1",
   "private": true,
   "scripts": {
