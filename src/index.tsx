@@ -1,6 +1,6 @@
 import { NativeModules, Platform } from 'react-native';
 
-const { AppboosterSdkReactNative } = NativeModules;
+const { ProbaSdkReactNative } = NativeModules;
 
 type Experiments = {
   [key: string]: string;
@@ -32,7 +32,7 @@ type SDKSettings = {
   showLogs: boolean;
 };
 
-type AppboosterSdkReactNativeType = {
+type ProbaSdkReactNativeType = {
   connect(sdkSettings: SDKSettings): Promise<boolean>;
   fetch(): Promise<boolean>;
   getExperiments(): Promise<Experiments>;
@@ -87,7 +87,7 @@ const getSdkDeviceProperties = (
           return result;
         default:
           throw new Error(
-            'AppboosterSdkReactNative: you can use only next data types for deviceProperties: String, Number, Boolean, Date'
+            'ProbaSdkReactNative: you can use only next data types for deviceProperties: String, Number, Boolean, Date'
           );
       }
     },
@@ -95,7 +95,7 @@ const getSdkDeviceProperties = (
   );
 };
 
-class AppboosterSdk {
+class ProbaSdk {
   connect = async ({
     appId = '',
     sdkToken = '',
@@ -109,7 +109,7 @@ class AppboosterSdk {
   }: SDKSettings): Promise<boolean> => {
     if (appId && sdkToken) {
       const sdkDeviceProperties = getSdkDeviceProperties(deviceProperties);
-      return await AppboosterSdkReactNative.connect({
+      return await ProbaSdkReactNative.connect({
         appId: `${appId}`,
         sdkToken: `${sdkToken}`,
         deviceId,
@@ -125,29 +125,29 @@ class AppboosterSdk {
       });
     }
     throw new Error(
-      'AppboosterSdkReactNative: SDK must be initiated with an appId and sdkToken'
+      'ProbaSdkReactNative: SDK must be initiated with an appId and sdkToken'
     );
   };
 
   fetch = async (): Promise<boolean> => {
-    return await AppboosterSdkReactNative.fetch();
+    return await ProbaSdkReactNative.fetch();
   };
 
   getExperiments = async (): Promise<Experiments> => {
-    return await AppboosterSdkReactNative.getExperiments();
+    return await ProbaSdkReactNative.getExperiments();
   };
 
   getExperimentsWithDetails = async (): Promise<Experiments> => {
-    return await AppboosterSdkReactNative.getExperimentsWithDetails();
+    return await ProbaSdkReactNative.getExperimentsWithDetails();
   };
 
   getLastOperationDurationMillis = async (): Promise<number> => {
-    return await AppboosterSdkReactNative.getLastOperationDurationMillis();
+    return await ProbaSdkReactNative.getLastOperationDurationMillis();
   };
 
   launchDebugMode = async (): Promise<boolean> => {
-    return await AppboosterSdkReactNative.launchDebugMode();
+    return await ProbaSdkReactNative.launchDebugMode();
   };
 }
 
-export default new AppboosterSdk() as AppboosterSdkReactNativeType;
+export default new ProbaSdk() as ProbaSdkReactNativeType;

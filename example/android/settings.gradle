@@ -1,6 +1,6 @@
-rootProject.name = 'AppboosterSdkReactNativeExample'
+rootProject.name = 'ProbaSdkReactNativeExample'
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app'
 
-include ':appboostersdkreactnative'
-project(':appboostersdkreactnative').projectDir = new File(rootProject.projectDir, '../../android')
+include ':probasdkreactnative'
+project(':probasdkreactnative').projectDir = new File(rootProject.projectDir, '../../android')

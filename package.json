@@ -1,5 +1,5 @@
 {
-  "name": "appbooster-sdk-react-native",
+  "name": "proba-sdk-react-native",
   "version": "0.2.8",
   "description": "Mobile AB-testing SDK",
   "main": "lib/commonjs/index",
@@ -13,7 +13,7 @@
     "android",
     "ios",
     "cpp",
-    "appbooster-sdk-react-native.podspec",
+    "proba-sdk-react-native.podspec",
     "!lib/typescript/example",
     "!**/__tests__",
     "!**/__fixtures__",
@@ -34,7 +34,8 @@
     "clear": "yarn clear-root && yarn clear-example",
     "reset": "yarn clear-root && yarn clear-example && yarn bootstrap && yarn clear-android-cache",
     "clear-pods": "cd example && cd ios && pod cache clean --all && cd .. && cd ..",
-    "update-sdk-pod": "cd example && cd ios && pod update AppboosterSDK & cd .. && cd ..",
+    "reset-all": "yarn clear-pods && yarn reset",
+    "update-sdk-pod": "cd example && cd ios && pod update Proba & cd .. && cd ..",
     "update-pods": "cd example && cd ios && pod install --repo-update && cd .. && cd .."
   },
   "keywords": [
@@ -42,13 +43,13 @@
     "ios",
     "android"
   ],
-  "repository": "git@github.com:appbooster/appbooster-sdk-react-native.git",
-  "author": "Appbooster <admin+developers@appbooster.ru>",
+  "repository": "git@github.com:proba-ai/proba-sdk-react-native.git",
+  "author": "Proba <hello@proba.ai>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/appbooster/appbooster-sdk-react-native/issues"
+    "url": "https://github.com/proba-ai/proba-sdk-react-native/issues"
   },
-  "homepage": "https://github.com/appbooster/appbooster-sdk-react-native#readme",
+  "homepage": "https://github.com/proba-ai/proba-sdk-react-native#readme",
   "devDependencies": {
     "@commitlint/config-conventional": "^8.3.4",
     "@react-native-community/bob": "^0.16.2",

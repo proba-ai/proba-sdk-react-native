@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  AppboosterSdkReactNativeExample
+//  ProbaSdkReactNativeExample
 //
 
 import Foundation
